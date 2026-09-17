@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, Sahabat Terbaik! 🎂 | Snoopy & Peanuts Gang Ultimate Edition</title>
+  <meta name="description"
+    content="Website ucapan ulang tahun interaktif terindah bertema Snoopy & The Peanuts Gang penuh kenangan manis, musik, dan kejutan spesial!" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@400;500;600;700&family=Patrick+Hand&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            snoopy: {
+              pink: '#FFF0F5',
+              pinkCard: '#FDE2E8',
+              pinkAccent: '#F472B6',
+              cream: '#FFFDF9',
+              creamDark: '#FEF3C7',
+              red: '#EE4344',
+              redDark: '#C82333',
+              yellow: '#FDE047',
+              yellowPastel: '#FEF9C3',
+              ink: '#1E293B',
+            }
+          },
+          fontFamily: {
+            comic: ['"Fredoka"', 'cursive', 'sans-serif'],
+            hand: ['"Patrick Hand"', 'cursive'],
+            script: ['"Caveat"', 'cursive'],
+            body: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'comic': '4px 4px 0px #1E293B',
+            'comic-lg': '7px 7px 0px #1E293B',
+            'comic-xl': '10px 10px 0px #1E293B',
+            'comic-sm': '2px 2px 0px #1E293B',
+            'comic-hover': '2px 2px 0px #1E293B',
+            'comic-red': '5px 5px 0px #EE4344',
+            'glow-candle': '0 0 25px rgba(245, 158, 11, 0.7)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FFFDF9;
+      color: #1E293B;
+      overflow-x: hidden;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .bg-comic-dots {
+      background-image: radial-gradient(#FBCFE8 1.8px, transparent 1.8px), radial-gradient(#FEF08A 1.8px, #FFFDF9 1.8px);
+      background-size: 36px 36px;
+      background-position: 0 0, 18px 18px;
+    }
+
+    .charlie-zigzag {
+      background: linear-gradient(135deg, #1E293B 25%, transparent 25%) -12px 0,
+        linear-gradient(225deg, #1E293B 25%, transparent 25%) -12px 0,
+        linear-gradient(315deg, #1E293B 25%, transparent 25%),
+        linear-gradient(45deg, #1E293B 25%, transparent 25%);
+      background-size: 24px 24px;
+      background-color: #FDE047;
+    }
+
+    @keyframes flameDance {
+      0%,
+      100% {
+        transform: scale(1) rotate(-2deg);
+        filter: drop-shadow(0 0 10px #f59e0b) drop-shadow(0 0 20px #ef4444);
+      }
+
+      25% {
+        transform: scale(1.1, 0.95) rotate(3deg);
+        filter: drop-shadow(0 0 16px #fbbf24) drop-shadow(0 0 25px #f97316);
+      }
+
+      50% {
+        transform: scale(0.95, 1.1) rotate(-1deg);
+        filter: drop-shadow(0 0 12px #f59e0b);
+      }
+
+      75% {
+        transform: scale(1.05, 1.02) rotate(2deg);
+        filter: drop-shadow(0 0 18px #fbbf24);
+      }
+    }
+
+    .flame-dance {
+      animation: flameDance 0.8s infinite ease-in-out;
+      transform-origin: bottom center;
+    }
+
+    @keyframes smokePuff {
+      0% {
+        opacity: 0.9;
+        transform: translateY(0) scale(0.6);
+      }
+
+      40% {
+        opacity: 0.7;
+        transform: translateY(-35px) scale(1.3) rotate(15deg);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-75px) scale(2) rotate(-25deg);
+      }
+    }
+
+    .smoke-anim {
+      animation: smokePuff 2s forwards ease-out;
+    }
+
+    @keyframes floatGentle {
+      0%,
+      100% {
+        transform: rotate(-2.5deg) translateY(0px);
+      }
+
+      50% {
+        transform: rotate(2deg) translateY(-10px);
+      }
+    }
+
+    .float-polaroid {
+      animation: floatGentle 4.5s ease-in-out infinite;
+    }
+
+    @keyframes mascotBob {
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-12px) rotate(4deg);
+      }
+    }
+
+    .mascot-float {
+      animation: mascotBob 3.5s ease-in-out infinite;
+    }
+
+    .heart-float {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      animation: floatUp 2.8s ease-out forwards;
+    }
+
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(0.6) rotate(0deg);
+      }
+
+      50% {
+        opacity: 0.9;
+        transform: translateY(-100px) scale(1.3) rotate(20deg);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-220px) scale(1.6) rotate(-25deg);
+      }
+    }
+
+    .sparkle-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      font-size: 14px;
+      animation: sparkleFade 1s ease-out forwards;
+    }
+
+    @keyframes sparkleFade {
+      0% {
+        opacity: 1;
+        transform: scale(1) translate(0, 0);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(0.2) translate(var(--tx, 0px), var(--ty, 25px));
+      }
+    }
+
+    @keyframes eqBar {
+      0%,
+      100% {
+        height: 4px;
+      }
+
+      50% {
+        height: 18px;
+      }
+    }
+
+    .eq-bar-1 {
+      animation: eqBar 0.7s infinite ease-in-out;
+    }
+
+    .eq-bar-2 {
+      animation: eqBar 0.9s infinite ease-in-out 0.2s;
+    }
+
+    .eq-bar-3 {
+      animation: eqBar 0.6s infinite ease-in-out 0.4s;
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #FFF0F5;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #F472B6;
+      border-radius: 9999px;
+      border: 2px solid #1E293B;
+    }
+  </style>
+</head>
+
+<body class="bg-comic-dots text-snoopy-ink antialiased selection:bg-snoopy-pinkAccent selection:text-white">
+
+  <div
+    class="bg-snoopy-yellow border-b-2 border-snoopy-ink py-1.5 px-3 overflow-hidden text-xs font-comic font-bold text-snoopy-ink tracking-wide">
+    <div class="flex items-center justify-center gap-4 sm:gap-8 flex-wrap text-center">
+      <span>🎉 TINGKAT KEBAHAGIAAN: 1000%</span>
+      <span class="hidden sm:inline">💖 STOK TAWA: TANPA BATAS</span>
+      <span>⭐ SAHABAT TERBAIK DI BUMI: KAMU!</span>
+      <span class="hidden md:inline">🐶 SNOOPY DANCING: ACTIVE!</span>
+    </div>
+  </div>
+
+  <header
+    class="sticky top-0 z-40 bg-snoopy-cream/95 backdrop-blur-md border-b-2 border-snoopy-ink px-4 py-3 transition-all duration-300">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+
+      <a href="#hero" class="flex items-center gap-2.5 group">
+        <div
+          class="w-11 h-11 rounded-2xl bg-snoopy-pinkCard border-2 border-snoopy-ink flex items-center justify-center shadow-comic-sm group-hover:rotate-12 group-hover:scale-105 transition-all">
+          <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="50" cy="50" rx="35" ry="28" fill="#FFFFFF" stroke="#1E293B" stroke-width="4" />
+            <ellipse cx="25" cy="45" rx="12" ry="22" fill="#1E293B" />
+            <ellipse cx="78" cy="48" rx="7" ry="5" fill="#1E293B" />
+            <circle cx="56" cy="42" r="3" fill="#1E293B" />
+            <path d="M48 60 Q58 68 68 58" stroke="#1E293B" stroke-width="3.5" stroke-linecap="round" />
+          </svg>
+        </div>
+        <div class="leading-none">
+          <span class="font-comic font-bold text-xl md:text-2xl text-snoopy-ink tracking-wide block">
+            Snoopy<span class="text-snoopy-red">B-Day</span>
+          </span>
+          <span class="font-hand text-xs text-snoopy-red font-bold">The Gang's Special Tour</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-2 font-comic font-medium text-sm">
+        <a href="#hero"
+          class="px-3.5 py-1.5 rounded-full border-2 border-transparent hover:border-snoopy-ink hover:bg-snoopy-pinkCard hover:shadow-comic-sm transition-all duration-200">
+          🏠 The Doghouse
+        </a>
+        <a href="#kenangan"
+          class="px-3.5 py-1.5 rounded-full border-2 border-transparent hover:border-snoopy-ink hover:bg-snoopy-pinkCard hover:shadow-comic-sm transition-all duration-200">
+          📖 Bab 1: Kenangan
+        </a>
+        <a href="#galeri"
+          class="px-3.5 py-1.5 rounded-full border-2 border-transparent hover:border-snoopy-ink hover:bg-snoopy-pinkCard hover:shadow-comic-sm transition-all duration-200">
+          💌 The Gang's Wishes
+        </a>
+        <a href="#kutipan"
+          class="px-3.5 py-1.5 rounded-full border-2 border-transparent hover:border-snoopy-ink hover:bg-snoopy-pinkCard hover:shadow-comic-sm transition-all duration-200">
+          💭 Charlie's Corner
+        </a>
+        <a href="#lilin"
+          class="px-3.5 py-1.5 rounded-full border-2 border-transparent hover:border-snoopy-ink hover:bg-snoopy-pinkCard hover:shadow-comic-sm transition-all duration-200">
+          🎂 Tiup Lilin
+        </a>
+      </nav>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button id="bgmBtn" onclick="toggleBGM()" title="Nyalakan Musik Ulang Tahun Ceria!"
+          class="h-10 px-3 rounded-full bg-snoopy-yellow hover:bg-amber-300 border-2 border-snoopy-ink shadow-comic-sm hover:scale-105 active:scale-95 flex items-center gap-2 text-snoopy-ink transition-transform">
+          <i id="bgmIcon" class="fa-solid fa-music text-sm"></i>
+          <span class="font-comic text-xs font-bold hidden sm:inline" id="bgmText">Play Musik</span>
+          <div id="eqContainer" class="hidden items-end gap-0.5 h-4 w-4">
+            <span class="w-1 bg-snoopy-ink rounded-full eq-bar-1"></span>
+            <span class="w-1 bg-snoopy-ink rounded-full eq-bar-2"></span>
+            <span class="w-1 bg-snoopy-ink rounded-full eq-bar-3"></span>
+          </div>
+        </button>
+
+        <button onclick="triggerConfettiBurst(); scrollToSection('lilin');"
+          class="bg-snoopy-red hover:bg-snoopy-redDark text-white font-comic font-semibold text-sm px-4 py-2 rounded-full border-2 border-snoopy-ink shadow-comic hover:shadow-comic-hover hover:translate-x-0.5 hover:translate-y-0.5 active:shadow-none transition-all flex items-center gap-1.5">
+          <span>🎉</span>
+          <span class="hidden sm:inline">Happy Birthday!</span>
+          <span class="sm:hidden">Ultah!</span>
+        </button>
+
+        <button id="mobileMenuBtn" onclick="toggleMobileMenu()"
+          class="md:hidden w-10 h-10 rounded-xl bg-snoopy-pinkCard border-2 border-snoopy-ink flex items-center justify-center shadow-comic-sm">
+          <i class="fa-solid fa-bars text-snoopy-ink text-lg"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <div id="mobileMenu"
+      class="hidden md:hidden pt-3 pb-2 border-t-2 border-dashed border-snoopy-ink/40 mt-2 flex flex-col gap-2 font-comic text-base">
+      <a href="#hero" onclick="toggleMobileMenu()"
+        class="px-3 py-2 rounded-lg hover:bg-snoopy-pinkCard flex items-center gap-2">
+        🏠 The Doghouse (Halaman Utama)
+      </a>
+      <a href="#kenangan" onclick="toggleMobileMenu()"
+        class="px-3 py-2 rounded-lg hover:bg-snoopy-pinkCard flex items-center gap-2">
+        📖 Bab 1: Kenangan Manis
+      </a>
+      <a href="#galeri" onclick="toggleMobileMenu()"
+        class="px-3 py-2 rounded-lg hover:bg-snoopy-pinkCard flex items-center gap-2">
+        💌 The Gang's Wishes (6 Folder Spesial)
+      </a>
+      <a href="#kutipan" onclick="toggleMobileMenu()"
+        class="px-3 py-2 rounded-lg hover:bg-snoopy-pinkCard flex items-center gap-2">
+        💭 Charlie's Corner (Kutipan Hari Ini)
+      </a>
+      <a href="#lilin" onclick="toggleMobileMenu()"
+        class="px-3 py-2 rounded-lg hover:bg-snoopy-pinkCard flex items-center gap-2">
+        🎂 Tiup Lilin Ulang Tahun
+      </a>
+      <a href="#kado" onclick="toggleMobileMenu()"
+        class="px-3 py-2 rounded-lg hover:bg-snoopy-pinkCard flex items-center gap-2">
+        🎁 Kotak Kado Kejutan
+      </a>
+    </div>
+  </header>
+
+  <section id="hero" class="relative pt-8 pb-16 md:pt-14 md:pb-24 overflow-hidden">
+    <div class="absolute top-6 left-6 text-3xl opacity-50 select-none animate-pulse">☁️</div>
+    <div class="absolute top-24 right-10 text-4xl opacity-50 select-none animate-bounce"
+      style="animation-duration: 3s;">🎈</div>
+    <div class="absolute bottom-6 left-1/4 text-2xl opacity-40 select-none">🐾</div>
+    <div class="absolute top-1/2 right-4 text-2xl opacity-40 select-none animate-spin" style="animation-duration: 12s;">
+      ⭐</div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+        <div class="lg:col-span-7 text-center lg:text-left space-y-5">
+
+          <div
+            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-snoopy-creamDark border-2 border-snoopy-ink shadow-comic-sm font-comic text-xs md:text-sm font-bold text-snoopy-ink uppercase tracking-wider">
+            <span class="text-snoopy-red">★</span> SPECIAL EDITION: PEANUTS GANG <span class="text-snoopy-red">★</span>
+          </div>
+
+          <h1
+            class="font-comic font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[44px] leading-tight text-snoopy-ink tracking-tight">
+            SELAMAT ULANG TAHUN UNTUK
+            <span class="relative inline-block text-snoopy-red">
+              SAHABAT TERBAIK!
+              <svg class="absolute -bottom-2.5 left-0 w-full h-3.5 text-snoopy-yellow" viewBox="0 0 100 20"
+                preserveAspectRatio="none" fill="currentColor">
+                <path d="M0,10 Q50,0 100,10 Q50,20 0,10 Z" />
+              </svg>
+            </span>
+          </h1>
+
+          <div
+            class="p-5 rounded-3xl bg-snoopy-pinkCard/90 border-2 border-snoopy-ink shadow-comic space-y-2 relative overflow-hidden">
+            <div class="absolute -top-6 -right-6 w-16 h-16 rounded-full bg-snoopy-yellowPastel/60 -z-0"></div>
+            <p
+              class="font-comic text-base sm:text-lg md:text-xl text-slate-800 font-semibold leading-relaxed relative z-10">
+              "SEMOGA HARIMU PENUH KECERIAAN DAN KETAWA! DARI SNOOPY DAN SELURUH GENG PEANUTS!"
+            </p>
+            <p class="font-hand text-xl text-slate-700 relative z-10">
+              Hari ini adalah hari keberuntungan semesta karena kamu dilahirkan ke dunia! 💖
+            </p>
+          </div>
+
+          <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 font-comic">
+            <button onclick="scrollToSection('lilin')"
+              class="bg-snoopy-red hover:bg-snoopy-redDark text-white px-6 py-3.5 rounded-2xl border-2 border-snoopy-ink shadow-comic hover:shadow-comic-hover hover:translate-x-0.5 hover:translate-y-0.5 active:shadow-none transition-all flex items-center gap-2 font-bold text-base">
+              <span>🎂</span> Tiup Lilin Sekarang!
+            </button>
+            <button onclick="scrollToSection('galeri')"
+              class="bg-snoopy-cream hover:bg-snoopy-creamDark text-snoopy-ink px-6 py-3.5 rounded-2xl border-2 border-snoopy-ink shadow-comic hover:shadow-comic-hover hover:translate-x-0.5 hover:translate-y-0.5 active:shadow-none transition-all flex items-center gap-2 font-bold text-base">
+              <span>💌</span> Buka 6 Pesan Rahasia
+            </button>
+            <button onclick="triggerConfettiBurst()"
+              class="w-12 h-12 rounded-2xl bg-snoopy-yellow hover:bg-yellow-300 border-2 border-snoopy-ink shadow-comic hover:shadow-comic-hover hover:translate-x-0.5 hover:translate-y-0.5 active:shadow-none transition-all flex items-center justify-center text-xl"
+              title="Hujan Konfeti!">
+              🎊
+            </button>
+          </div>
+
+          <div class="flex items-center justify-center lg:justify-start gap-2 text-xs font-hand text-slate-600 pt-1">
+            <span>🐾 Dikonfirmasi oleh Snoopy: "Kamu adalah manusia terfavorit tahun ini!"</span>
+          </div>
+
+        </div>
+
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-sm">
+
+            <div
+              class="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20 w-32 h-8 bg-snoopy-yellowPastel border-2 border-snoopy-ink shadow-comic-sm rotate-2 font-hand text-sm font-bold text-center flex items-center justify-center tracking-wider text-slate-800">
+              BESTIE FOREVER ★
+            </div>
+
+            <div
+              class="float-polaroid bg-white border-2 border-snoopy-ink rounded-3xl p-4 sm:p-5 shadow-comic-lg hover:shadow-comic-xl transition-all duration-300">
+
+              <div
+                class="relative w-full aspect-[4/4.5] bg-snoopy-pinkCard rounded-2xl border-2 border-snoopy-ink overflow-hidden group">
+                <img id="heroSahabatImg"
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80"
+                  alt="Foto Sahabat Terbaik"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+
+                <div
+                  class="absolute bottom-2.5 left-2.5 bg-white/95 backdrop-blur-sm border-2 border-snoopy-ink rounded-xl px-3 py-1 text-xs font-comic font-bold text-snoopy-ink shadow-comic-sm flex items-center gap-1.5">
+                  <span>🎂</span> Hari Ulang Tahun Spesial!
+                </div>
+
+                <div
+                  class="absolute top-2.5 right-2.5 bg-snoopy-yellow border-2 border-snoopy-ink rounded-full w-10 h-10 flex items-center justify-center shadow-comic-sm animate-bounce"
+                  style="animation-duration: 2s;" title="Woodstock chirping!">
+                  🐤
+                </div>
+              </div>
+
+              <div class="pt-4 pb-1 text-center">
+                <p class="font-script font-bold text-3xl text-snoopy-ink">
+                  Our Sweetest Moments ✨
+                </p>
+                <div class="flex items-center justify-center gap-2 mt-1">
+                  <span class="inline-block w-2 h-2 rounded-full bg-snoopy-red"></span>
+                  <p class="font-comic text-xs text-slate-500 font-medium">Snoopy & Woodstock Approved</p>
+                  <span class="inline-block w-2 h-2 rounded-full bg-snoopy-red"></span>
+                </div>
+              </div>
+
+            </div>
+
+            <div
+              class="absolute -bottom-6 -right-4 z-20 bg-snoopy-cream border-2 border-snoopy-ink rounded-2xl p-3 shadow-comic flex items-center gap-2 hover:scale-110 transition-transform cursor-pointer"
+              onclick="snoopySpeak()">
+              <div
+                class="w-9 h-9 rounded-xl bg-snoopy-red border-2 border-snoopy-ink flex items-center justify-center text-white text-lg">
+                🐶
+              </div>
+              <div class="text-left font-comic text-xs">
+                <span class="font-bold block text-snoopy-ink">Snoopy:</span>
+                <span class="text-slate-600" id="snoopyHeroQuote">"Waktunya pesta & kue!"</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="w-full h-5 mt-16 charlie-zigzag border-y-2 border-snoopy-ink"></div>
+  </section>
+
+  <section id="kenangan" class="py-16 md:py-20 bg-snoopy-pink/60 relative">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center max-w-2xl mx-auto space-y-3 mb-12">
+        <div
+          class="inline-block bg-snoopy-red text-white font-comic text-xs sm:text-sm font-bold uppercase tracking-wider px-4 py-1.5 rounded-full border-2 border-snoopy-ink shadow-comic-sm">
+          BAB 1: KENANGAN MANIS
+        </div>
+        <h2 class="font-comic font-bold text-3xl sm:text-4xl md:text-5xl text-snoopy-ink">
+          Koleksi Momen Spesial 📖
+        </h2>
+        <p class="font-hand text-2xl sm:text-3xl text-slate-700">
+          "Mari kita lihat kembali perjalanan dan kenangan indah yang telah kita lewati bersama!"
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div
+          class="bg-snoopy-cream rounded-3xl border-2 border-snoopy-ink p-5 sm:p-6 shadow-comic hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between border-b-2 border-dashed border-snoopy-ink/30 pb-3 mb-3">
+              <span
+                class="font-comic font-bold text-xs bg-snoopy-yellow px-2.5 py-1 rounded-md border-2 border-snoopy-ink">
+                PANEL #01
+              </span>
+              <span class="text-sm font-hand font-bold text-slate-600">🌱 Pertemuan Pertama</span>
+            </div>
+            <div
+              class="aspect-video bg-snoopy-pinkCard rounded-2xl border-2 border-snoopy-ink overflow-hidden mb-4 relative group">
+              <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80"
+                alt="Kenangan Awal"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div
+                class="absolute top-2 left-2 bg-white/95 text-[11px] font-comic font-bold border border-snoopy-ink px-2 py-0.5 rounded shadow-sm">
+                Day 1 Friends
+              </div>
+            </div>
+            <h3 class="font-comic font-bold text-xl text-snoopy-ink mb-1.5">Awal Dari Segalanya</h3>
+            <p class="font-body text-sm text-slate-600 leading-relaxed">
+              Dari obrolan canggung sampai akhirnya jadi partner in crime yang nggak bisa dipisahkan. Terima kasih sudah
+              hadir dalam hidupku!
+            </p>
+          </div>
+          <div
+            class="pt-4 mt-4 border-t border-slate-200 flex items-center justify-between text-xs font-hand font-bold text-slate-500">
+            <span>🐾 Snoopy approved</span>
+            <span class="text-snoopy-red">❤️ 100% Cocok</span>
+          </div>
+        </div>
+
+        <div
+          class="bg-snoopy-cream rounded-3xl border-2 border-snoopy-ink p-5 sm:p-6 shadow-comic hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between border-b-2 border-dashed border-snoopy-ink/30 pb-3 mb-3">
+              <span
+                class="font-comic font-bold text-xs bg-snoopy-pinkCard px-2.5 py-1 rounded-md border-2 border-snoopy-ink">
+                PANEL #02
+              </span>
+              <span class="text-sm font-hand font-bold text-slate-600">⚡ Momen Gila & Tawa</span>
+            </div>
+            <div
+              class="aspect-video bg-snoopy-yellowPastel rounded-2xl border-2 border-snoopy-ink overflow-hidden mb-4 relative group">
+              <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=600&q=80"
+                alt="Momen Tawa"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div
+                class="absolute top-2 left-2 bg-white/95 text-[11px] font-comic font-bold border border-snoopy-ink px-2 py-0.5 rounded shadow-sm">
+                Laughing Non-Stop
+              </div>
+            </div>
+            <h3 class="font-comic font-bold text-xl text-snoopy-ink mb-1.5">Ketawa Tanpa Henti</h3>
+            <p class="font-body text-sm text-slate-600 leading-relaxed">
+              Semua lelucon receh, tingkah konyol kita di tongkrongan, dan hal-hal aneh yang cuma kita berdua yang paham
+              lucunya.
+            </p>
+          </div>
+          <div
+            class="pt-4 mt-4 border-t border-slate-200 flex items-center justify-between text-xs font-hand font-bold text-slate-500">
+            <span>🐥 Woodstock tweets</span>
+            <span class="text-snoopy-red">😂 1000+ Jokes</span>
+          </div>
+        </div>
+
+        <div
+          class="bg-snoopy-cream rounded-3xl border-2 border-snoopy-ink p-5 sm:p-6 shadow-comic hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between border-b-2 border-dashed border-snoopy-ink/30 pb-3 mb-3">
+              <span
+                class="font-comic font-bold text-xs bg-snoopy-creamDark px-2.5 py-1 rounded-md border-2 border-snoopy-ink">
+                PANEL #03
+              </span>
+              <span class="text-sm font-hand font-bold text-slate-600">🌟 Harapan Masa Depan</span>
+            </div>
+            <div
+              class="aspect-video bg-snoopy-pinkCard rounded-2xl border-2 border-snoopy-ink overflow-hidden mb-4 relative group">
+              <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80"
+                alt="Masa Depan Bersama"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div
+                class="absolute top-2 left-2 bg-white/95 text-[11px] font-comic font-bold border border-snoopy-ink px-2 py-0.5 rounded shadow-sm">
+                Always Growing
+              </div>
+            </div>
+            <h3 class="font-comic font-bold text-xl text-snoopy-ink mb-1.5">Selalu Saling Dukung</h3>
+            <p class="font-body text-sm text-slate-600 leading-relaxed">
+              Melewati masa sulit bersama, merayakan setiap kemenangan kecil, dan berjanji untuk tetap saling ada sampai
+              nanti jadi tua!
+            </p>
+          </div>
+          <div
+            class="pt-4 mt-4 border-t border-slate-200 flex items-center justify-between text-xs font-hand font-bold text-slate-500">
+            <span>🐾 Peanuts Friendship</span>
+            <span class="text-snoopy-red">✨ Forever Strong</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="galeri" class="py-16 md:py-24 max-w-6xl mx-auto px-4 sm:px-6">
+
+    <div class="text-center max-w-2xl mx-auto space-y-3 mb-12">
+      <div
+        class="inline-flex items-center gap-2 bg-snoopy-yellowPastel border-2 border-snoopy-ink rounded-full px-4 py-1 shadow-comic-sm font-comic text-xs sm:text-sm font-bold text-slate-800">
+        <span>📂</span> THE GANG'S SPECIAL ARCHIVES
+      </div>
+      <h2 class="font-comic font-bold text-3xl sm:text-4xl md:text-5xl text-snoopy-ink">
+        Galeri Foto & Folder Pilihan 💌
+      </h2>
+      <p class="font-body text-slate-600 text-sm sm:text-base">
+        Klik setiap kartu folder di bawah ini untuk membuka rahasia manis dan pesan istimewa dari geng Snoopy!
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+
+      <div onclick="openFolderModal(1)"
+        class="group cursor-pointer bg-snoopy-cream rounded-3xl border-2 border-snoopy-ink p-6 shadow-comic hover:shadow-comic-lg hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+        <div class="flex items-center justify-between mb-4">
+          <span
+            class="w-12 h-12 rounded-2xl bg-rose-100 border-2 border-snoopy-ink flex items-center justify-center text-2xl shadow-comic-sm group-hover:rotate-12 group-hover:scale-110 transition-transform">
+            💖
+          </span>
+          <span class="font-comic text-xs bg-snoopy-pinkCard px-3 py-1 rounded-full border border-snoopy-ink font-bold">
+            FOLDER 01
+          </span>
+        </div>
+        <h3
+          class="font-comic font-bold text-xl sm:text-2xl text-snoopy-ink mb-1 group-hover:text-snoopy-red transition-colors">
+          Alasan Kamu Berharga
+        </h3>
+        <p class="font-body text-xs sm:text-sm text-slate-600 mb-4 line-clamp-2">
+          Kenapa kamu adalah orang yang paling mengagumkan dan begitu berharga di dunia ini.
+        </p>
+        <div
+          class="flex items-center justify-between pt-3 border-t border-dashed border-slate-300 text-xs font-comic font-semibold text-snoopy-red">
+          <span>Buka Pesan ➔</span>
+          <span>🐾 Snoopy Note</span>
+        </div>
+      </div>
+
+      <div onclick="openFolderModal(2)"
+        class="group cursor-pointer bg-snoopy-cream rounded-3xl border-2 border-snoopy-ink p-6 shadow-comic hover:shadow-comic-lg hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+        <div class="flex items-center justify-between mb-4">
+          <span
+            class="w-12 h-12 rounded-2xl bg-amber-100 border-2 border-snoopy-ink flex items-center justify-center text-2xl shadow-comic-sm group-hover:rotate-12 group-hover:scale-110 transition-transform">
+            😂
+          </span>
+          <span
+            class="font-comic text-xs bg-snoopy-yellowPastel px-3 py-1 rounded-full border border-snoopy-ink font-bold">
+            FOLDER 02
+          </span>
+        </div>
+        <h3
+          class="font-comic font-bold text-xl sm:text-2xl text-snoopy-ink mb-1 group-hover:text-snoopy-red transition-colors">
+          Memori Lucu
+        </h3>
+        <p class="font-body text-xs sm:text-sm text-slate-600 mb-4 line-clamp-2">
+          Kumpulan momen kocak bikin ngakak sampai perut sakit yang tak terlupakan!
+        </p>
+        <div
+          class="flex items-center justify-between pt-3 border-t border-dashed border-slate-300 text-xs font-comic font-semibold text-snoopy-red">
+          <span>Buka Pesan ➔</span>
+          <span>🐥 Woodstock Joke</span>
+        </div>
+      </div>
+
+      <div onclick="openFolderModal(3)"
+        class="group cursor-pointer bg-snoopy-cream rounded-3xl border-2 border-snoopy-ink p-6 shadow-comic hover:shadow-comic-lg hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+        <div class="flex items-center justify-between mb-4">
+          <span
+            class="w-12 h-12 rounded-2xl bg-pink-100 border-2 border-snoopy-ink flex items-center justify-center text-2xl shadow-comic-sm group-hover:rotate-12 group-hover:scale-110 transition-transform">
+            💌
+          </span>
+          <span class="font-comic text-xs bg-snoopy-pinkCard px-3 py-1 rounded-full border border-snoopy-ink font-bold">
+            FOLDER 03
+          </span>
+        </div>
+        <h3
+          class="font-comic font-bold text-xl sm:text-2xl text-snoopy-ink mb-1 group-hover:text-snoopy-red transition-colors">
+          Pesan Manis
+        </h3>
+        <p class="font-body text-xs sm:text-sm text-slate-600 mb-4 line-clamp-2">
+          Surat tulus dari lubuk hati terdalam khusus di hari bertambah usiamu.
+        </p>
+        <div
+          class="flex items-center justify-between pt-3 border-t border-dashed border-slate-300 text-xs font-comic font-semibold text-snoopy-red">
+          <span>Buka Pesan ➔</span>
+          <span>💌 Love Letter</span>
+        </div>
+      </div>
+
+      <div onclick="openFolderModal(4)"
+        class="group cursor-pointer bg-snoopy-cream rounded-3xl border-2 border-snoopy-ink p-6 shadow-comic hover:shadow-comic-lg hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+        <div class="flex items-center justify-between mb-4">
+          <span
+            class="w-12 h-12 rounded-2xl bg-emerald-100 border-2 border-snoopy-ink flex items-center justify-center text-2xl shadow-comic-sm group-hover:rotate-12 group-hover:scale-110 transition-transform">
+            ✨
+          </span>
+          <span class="font-comic text-xs bg-emerald-50 px-3 py-1 rounded-full border border-snoopy-ink font-bold">
+            FOLDER 04
+          </span>
+        </div>
+        <h3
+          class="font-comic font-bold text-xl sm:text-2xl text-snoopy-ink mb-1 group-hover:text-snoopy-red transition-colors">
+          Unik Tentang Kamu
+        </h3>
+        <p class="font-body text-xs sm:text-sm text-slate-600 mb-4 line-clamp-2">
+          Hal-hal kecil dan kebiasaan menggemaskan yang cuma kamu yang punya!
+        </p>
+        <div
+          class="flex items-center justify-between pt-3 border-t border-dashed border-slate-300 text-xs font-comic font-semibold text-snoopy-red">
+          <span>Buka Pesan ➔</span>
+          <span>⭐ 1 in a Million</span>
+        </div>
+      </div>
+
+      <div onclick="openFolderModal(5)"
+        class="group cursor-pointer bg-snoopy-cream rounded-3xl border-2 border-snoopy-ink p-6 shadow-comic hover:shadow-comic-lg hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+        <div class="flex items-center justify-between mb-4">
+          <span
+            class="w-12 h-12 rounded-2xl bg-purple-100 border-2 border-snoopy-ink flex items-center justify-center text-2xl shadow-comic-sm group-hover:rotate-12 group-hover:scale-110 transition-transform">
+            🙏
+          </span>
+          <span class="font-comic text-xs bg-purple-50 px-3 py-1 rounded-full border border-snoopy-ink font-bold">
+            FOLDER 05
+          </span>
+        </div>
+        <h3
+          class="font-comic font-bold text-xl sm:text-2xl text-snoopy-ink mb-1 group-hover:text-snoopy-red transition-colors">
+          Doa Spesial
+        </h3>
+        <p class="font-body text-xs sm:text-sm text-slate-600 mb-4 line-clamp-2">
+          Doa terbaik untuk kesehatan, kebahagiaan, dan kelancaran semua cita-citamu.
+        </p>
+        <div
+          class="flex items-center justify-between pt-3 border-t border-dashed border-slate-300 text-xs font-comic font-semibold text-snoopy-red">
+          <span>Buka Pesan ➔</span>
+          <span>🌸 Best Prayers</span>
+        </div>
+      </div>
+
+      <div onclick="openFolderModal(6)"
+        class="group cursor-pointer bg-snoopy-red text-white rounded-3xl border-2 border-snoopy-ink p-6 shadow-comic hover:shadow-comic-lg hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+        <div class="flex items-center justify-between mb-4">
+          <span
+            class="w-12 h-12 rounded-2xl bg-white border-2 border-snoopy-ink flex items-center justify-center text-2xl shadow-comic-sm text-snoopy-ink group-hover:rotate-12 group-hover:scale-110 transition-transform">
+            🎁
+          </span>
+          <span
+            class="font-comic text-xs bg-snoopy-yellow text-snoopy-ink px-3 py-1 rounded-full border border-snoopy-ink font-bold animate-pulse">
+            FINAL FOLDER
+          </span>
+        </div>
+        <h3 class="font-comic font-bold text-xl sm:text-2xl text-white mb-1">
+          Tunggu Hingga Semua Dilihat!
+        </h3>
+        <p class="font-body text-xs sm:text-sm text-rose-100 mb-4 line-clamp-2">
+          Kejutan rahasia pamungkas untukmu! Buka folder ini untuk melihat pesan penutup.
+        </p>
+        <div
+          class="flex items-center justify-between pt-3 border-t border-dashed border-white/40 text-xs font-comic font-semibold text-snoopy-yellow">
+          <span>Buka Grand Finale ➔</span>
+          <span>🎉 Surprise!</span>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <div id="folderModal"
+    class="fixed inset-0 z-50 bg-snoopy-ink/75 backdrop-blur-md hidden items-center justify-center p-4 transition-all duration-300">
+    <div
+      class="relative bg-snoopy-cream w-full max-w-lg rounded-3xl border-2 border-snoopy-ink shadow-comic-xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto transform transition-all scale-95 opacity-0"
+      id="modalContainer">
+
+      <button onclick="closeFolderModal()"
+        class="absolute top-4 right-4 w-10 h-10 rounded-full bg-snoopy-pinkCard border-2 border-snoopy-ink flex items-center justify-center text-snoopy-ink font-bold hover:bg-snoopy-red hover:text-white transition-colors shadow-comic-sm">
+        ✕
+      </button>
+
+      <div id="modalBadge"
+        class="inline-block px-3 py-1 rounded-full text-xs font-comic font-bold border border-snoopy-ink mb-3 bg-snoopy-yellowPastel">
+        FOLDER 01
+      </div>
+
+      <h3 id="modalTitle" class="font-comic font-bold text-2xl sm:text-3xl text-snoopy-ink mb-4">
+        Alasan Kamu Berharga
+      </h3>
+
+      <div
+        class="aspect-video w-full rounded-2xl border-2 border-snoopy-ink overflow-hidden mb-4 bg-snoopy-pinkCard relative">
+        <img id="modalImg" src="" alt="Foto Kenangan" class="w-full h-full object-cover" />
+        <div
+          class="absolute bottom-2.5 right-2.5 bg-white/95 border border-snoopy-ink px-2.5 py-0.5 rounded-lg text-xs font-comic font-bold shadow-sm">
+          📸 Special Memory
+        </div>
+      </div>
+
+      <div class="p-4 sm:p-5 rounded-2xl bg-snoopy-pinkCard/60 border-2 border-dashed border-snoopy-ink/40 mb-6">
+        <p id="modalDesc" class="font-body text-slate-700 text-sm sm:text-base leading-relaxed">
+          Pesan kenangan manis akan tampil di sini.
+        </p>
+      </div>
+
+      <div class="flex items-center justify-between pt-2">
+        <div class="flex items-center gap-2">
+          <span class="text-3xl" id="modalEmoji">🐶</span>
+          <span class="font-hand font-bold text-base text-slate-700" id="modalNote">"Snoopy sayang kamu!"</span>
+        </div>
+        <button onclick="closeFolderModal()"
+          class="bg-snoopy-red hover:bg-snoopy-redDark text-white font-comic text-sm font-bold px-6 py-2.5 rounded-xl border-2 border-snoopy-ink shadow-comic hover:shadow-comic-hover hover:translate-x-0.5 hover:translate-y-0.5 active:shadow-none transition-all">
+          Tutup Pesan ✨
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <section id="kutipan" class="py-16 md:py-24 bg-snoopy-creamDark/40 border-y-2 border-snoopy-ink relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+
+      <div class="relative bg-snoopy-cream rounded-3xl border-2 border-snoopy-ink p-6 sm:p-12 shadow-comic-lg">
+
+        <div
+          class="absolute -top-14 left-1/2 -translate-x-1/2 sm:left-12 sm:translate-x-0 w-28 h-28 bg-snoopy-red border-2 border-snoopy-ink rounded-2xl shadow-comic flex items-center justify-center rotate-3 hover:rotate-0 transition-transform">
+          <div class="text-center">
+            <span class="text-4xl block">🐶</span>
+            <span class="font-comic text-[11px] font-bold text-white uppercase tracking-tighter">DOGHOUSE</span>
+          </div>
+        </div>
+
+        <div class="pt-12 sm:pt-4 sm:pl-32 space-y-4">
+
+          <div class="flex items-center justify-between">
+            <span
+              class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-snoopy-pinkCard border border-snoopy-ink text-xs font-comic font-bold text-snoopy-ink">
+              <span>💭</span> KUTIPAN HARI INI
+            </span>
+            <span class="text-2xl animate-pulse">⭐</span>
+          </div>
+
+          <blockquote class="font-comic text-xl sm:text-2xl md:text-3xl text-snoopy-ink font-semibold leading-snug">
+            “Persahabatan adalah ketika kamu tidak perlu mengatakan apa-apa, tapi tetap saling memahami dengan
+            sempurna.”
+          </blockquote>
+
+          <div class="flex items-center justify-between pt-3 border-t-2 border-dashed border-snoopy-ink/20">
+            <div>
+              <p class="font-script text-3xl text-snoopy-red font-bold">
+                — Snoopy & Peanuts Gang
+              </p>
+              <p class="font-body text-xs text-slate-500">
+                Charles M. Schulz Wisdom
+              </p>
+            </div>
+            <div class="flex items-center gap-2 text-2xl">
+              <span>🐤</span>
+              <span>🐾</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="lilin" class="py-16 md:py-24 max-w-5xl mx-auto px-4 sm:px-6 text-center">
+
+    <div class="max-w-2xl mx-auto space-y-3 mb-10">
+      <div
+        class="inline-block bg-snoopy-yellow text-snoopy-ink font-comic text-xs sm:text-sm font-bold uppercase tracking-wider px-4 py-1.5 rounded-full border-2 border-snoopy-ink shadow-comic-sm">
+        ✨ MAKE A WISH BIRTHDAY CAKE ✨
+      </div>
+      <h2 class="font-comic font-bold text-3xl sm:text-4xl md:text-5xl text-snoopy-ink">
+        Tiup Lilinnya! Make a Wish! 🎂
+      </h2>
+      <p class="font-body text-slate-600 text-sm sm:text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+        Tutup matamu, bayangkan semua impian terbesarmu di tahun ini, dan tiup lilin ulang tahunmu sekarang juga!
+      </p>
+    </div>
+
+    <div
+      class="max-w-lg mx-auto bg-snoopy-cream rounded-3xl border-2 border-snoopy-ink p-6 sm:p-10 shadow-comic-lg relative overflow-hidden">
+
+      <div class="mb-6 p-4 rounded-2xl bg-snoopy-pinkCard/70 border-2 border-dashed border-snoopy-ink/40 text-left">
+        <label for="userWishInput"
+          class="block font-comic font-bold text-xs sm:text-sm text-snoopy-ink mb-1.5 flex items-center gap-1.5">
+          <span>✨</span> Tulis Permintaan / Harapan Rahasiamu:
+        </label>
+        <div class="flex gap-2">
+          <input type="text" id="userWishInput" placeholder="Contoh: Sukses selalu & bahagia bersama sahabat..."
+            class="w-full bg-white border-2 border-snoopy-ink rounded-xl px-3 py-2 text-sm font-comic focus:outline-none focus:ring-2 focus:ring-snoopy-pinkAccent" />
+          <button onclick="saveSecretWish()"
+            class="bg-snoopy-yellow hover:bg-yellow-300 text-snoopy-ink font-comic font-bold text-xs px-3 py-2 rounded-xl border-2 border-snoopy-ink shadow-comic-sm shrink-0 active:scale-95">
+            Kunci Doa 🔒
+          </button>
+        </div>
+        <p id="wishSavedText" class="hidden text-xs font-hand font-bold text-snoopy-red mt-1.5">
+          ✅ Harapanmu telah tersimpan! Sekarang tiup lilinnya!
+        </p>
+      </div>
+
+      <div class="mb-6">
+        <span class="font-script font-bold text-3xl text-snoopy-red inline-block -rotate-2">
+          ★ Make 3 Wishes Before Blowing! ★
+        </span>
+      </div>
+
+      <div class="relative flex flex-col items-center justify-center py-6 cursor-pointer select-none group"
+        onclick="blowCandle()" title="Klik lilin untuk meniup api!">
+
+        <div id="candleFlameContainer" class="relative z-20 flex flex-col items-center mb-1">
+          <div id="flame"
+            class="w-8 h-12 bg-gradient-to-t from-orange-500 via-amber-300 to-yellow-100 rounded-full flame-dance border-2 border-amber-600 shadow-glow-candle cursor-pointer">
+          </div>
+
+          <div id="smoke" class="hidden absolute -top-10 text-3xl select-none smoke-anim">
+            💨
+          </div>
+        </div>
+
+        <div
+          class="w-7 h-16 bg-gradient-to-r from-rose-200 via-white to-rose-200 border-2 border-snoopy-ink rounded-t-md shadow-comic-sm flex flex-col justify-around py-1">
+          <div class="w-full h-1.5 bg-snoopy-red"></div>
+          <div class="w-full h-1.5 bg-snoopy-yellow"></div>
+          <div class="w-full h-1.5 bg-snoopy-red"></div>
+        </div>
+
+        <div
+          class="w-48 h-16 bg-snoopy-pinkCard rounded-2xl border-2 border-snoopy-ink -mt-2 shadow-comic-sm flex items-center justify-center relative overflow-hidden">
+          <div class="absolute top-0 w-full flex justify-between px-1">
+            <span class="w-5 h-4 bg-white rounded-b-full border-b border-x border-snoopy-ink"></span>
+            <span class="w-6 h-5 bg-white rounded-b-full border-b border-x border-snoopy-ink"></span>
+            <span class="w-5 h-3 bg-white rounded-b-full border-b border-x border-snoopy-ink"></span>
+            <span class="w-7 h-5 bg-white rounded-b-full border-b border-x border-snoopy-ink"></span>
+            <span class="w-5 h-4 bg-white rounded-b-full border-b border-x border-snoopy-ink"></span>
+            <span class="w-6 h-4 bg-white rounded-b-full border-b border-x border-snoopy-ink"></span>
+          </div>
+          <span class="font-comic font-bold text-xs text-slate-800 tracking-wider z-10 pt-2">
+            HAPPY BIRTHDAY
+          </span>
+        </div>
+
+        <div
+          class="w-72 h-20 bg-amber-100 rounded-3xl border-2 border-snoopy-ink -mt-3 shadow-comic flex items-center justify-around px-4 relative overflow-hidden">
+          <span class="text-2xl hover:scale-125 transition-transform">🍓</span>
+          <span class="text-2xl hover:scale-125 transition-transform">🍒</span>
+          <span class="text-2xl hover:scale-125 transition-transform">🍓</span>
+          <span class="text-2xl hover:scale-125 transition-transform">🍒</span>
+          <span class="text-2xl hover:scale-125 transition-transform">🍓</span>
+        </div>
+
+        <div class="w-80 h-4 bg-white border-2 border-snoopy-ink rounded-full -mt-2 shadow-comic-sm"></div>
+
+      </div>
+
+      <div id="wishMessage"
+        class="hidden mt-6 p-5 rounded-2xl bg-snoopy-yellowPastel border-2 border-snoopy-ink shadow-comic animate-bounce"
+        style="animation-duration: 2s;">
+        <p class="font-comic font-bold text-xl text-snoopy-red">
+          ✨ WISH GRANTED! SEMOGA SEMUA IMPIANMU TERKABUL! 🎉
+        </p>
+        <p id="userWishDisplay" class="font-script text-2xl text-slate-800 mt-2 font-bold"></p>
+        <p class="font-hand text-base text-slate-700 mt-1">
+          "Api sudah padam, doa terbaikmu sudah terkirim ke langit bersama Snoopy & Woodstock!"
+        </p>
+      </div>
+
+      <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <button id="blowBtn" onclick="blowCandle()"
+          class="w-full sm:w-auto bg-snoopy-red hover:bg-snoopy-redDark text-white font-comic font-bold text-base px-8 py-3.5 rounded-2xl border-2 border-snoopy-ink shadow-comic hover:shadow-comic-hover hover:translate-x-0.5 hover:translate-y-0.5 active:shadow-none transition-all flex items-center justify-center gap-2">
+          <span>💨</span> <span id="blowBtnText">Tiup Lilin Sekarang!</span>
+        </button>
+
+        <button id="relightBtn" onclick="relightCandle()"
+          class="hidden w-full sm:w-auto bg-snoopy-yellow hover:bg-yellow-300 text-snoopy-ink font-comic font-bold text-base px-8 py-3.5 rounded-2xl border-2 border-snoopy-ink shadow-comic hover:shadow-comic-hover hover:translate-x-0.5 hover:translate-y-0.5 active:shadow-none transition-all items-center justify-center gap-2">
+          <span>🔥</span> Nyalakan Lilin Lagi
+        </button>
+      </div>
+
+      <p class="font-hand text-sm text-slate-500 mt-4">
+        Tip: Kamu juga bisa langsung mengklik gambar api lilinnya! 👆
+      </p>
+
+    </div>
+
+  </section>
+
+  <section id="kado" class="py-12 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+    <div class="bg-snoopy-cream rounded-3xl border-2 border-snoopy-ink p-8 shadow-comic-lg">
+      <span
+        class="inline-block bg-snoopy-yellowPastel text-snoopy-ink border border-snoopy-ink rounded-full px-4 py-1 font-comic text-xs font-bold mb-3">
+        🎁 BONUS SURPRISE FOR BEST FRIEND
+      </span>
+      <h3 class="font-comic font-bold text-2xl sm:text-3xl text-snoopy-ink mb-2">
+        Ada Satu Kado Misterius Lagi Untukmu!
+      </h3>
+      <p class="font-body text-slate-600 text-sm mb-6">
+        Ketuk kotak kado di bawah ini untuk membuka sertifikat persahabatan seumur hidup!
+      </p>
+
+      <div class="flex justify-center">
+        <div id="mysteryBox" onclick="openMysteryBox()" class="cursor-pointer group flex flex-col items-center">
+          <div
+            class="w-24 h-24 sm:w-28 sm:h-28 bg-snoopy-red rounded-3xl border-2 border-snoopy-ink shadow-comic flex items-center justify-center text-5xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 relative">
+            <span class="group-hover:animate-ping absolute text-3xl opacity-30">🎁</span>
+            🎁
+          </div>
+          <span class="font-hand font-bold text-lg text-snoopy-red mt-3 group-hover:underline">
+            Klik untuk membuka kado! 👆
+          </span>
+        </div>
+      </div>
+
+      <div id="giftRevealed"
+        class="hidden mt-6 p-6 rounded-2xl bg-snoopy-pinkCard border-2 border-snoopy-ink shadow-comic animate-fade-in text-center max-w-md mx-auto">
+        <div class="text-4xl mb-2">🏆</div>
+        <h4 class="font-comic font-bold text-xl text-snoopy-ink">
+          PIALA SAHABAT TERBAIK ABADI
+        </h4>
+        <p class="font-script text-2xl text-snoopy-red font-bold mt-1">
+          Officially Certified by Snoopy & Charlie Brown
+        </p>
+        <p class="font-body text-xs text-slate-600 mt-2">
+          Diberikan kepada sahabat paling berharga atas kebaikan, kesetiaan, dan jutaan momen tawa yang tak tergantikan!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-snoopy-pink/70 border-t-2 border-snoopy-ink relative overflow-hidden">
+
+    <div class="absolute top-8 left-8 text-3xl opacity-30 select-none">🐾</div>
+    <div class="absolute bottom-8 right-8 text-3xl opacity-30 select-none">🐾</div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6">
+
+      <div
+        class="w-20 h-20 mx-auto rounded-full bg-white border-2 border-snoopy-ink shadow-comic flex items-center justify-center text-4xl animate-pulse">
+        🐶
+      </div>
+
+      <h2 class="font-comic font-bold text-3xl sm:text-4xl md:text-5xl text-snoopy-ink leading-tight">
+        Happy Birthday! 🎈
+      </h2>
+
+      <div class="max-w-2xl mx-auto bg-snoopy-cream rounded-3xl border-2 border-snoopy-ink p-6 sm:p-8 shadow-comic">
+        <p class="font-comic text-lg sm:text-xl md:text-2xl text-slate-800 font-semibold leading-relaxed">
+          "Semoga tahun ini menjadi tahun terbaik yang penuh keberkahan dan kebahagiaan!"
+        </p>
+        <p class="font-hand text-xl text-slate-600 mt-3">
+          Tetaplah menjadi dirimu yang ceria, hangat, dan menginspirasi banyak orang di sekitarmu!
+        </p>
+      </div>
+
+      <div class="pt-4">
+        <button onclick="triggerLoveSurprise(event)"
+          class="bg-snoopy-red hover:bg-snoopy-redDark text-white font-comic font-bold text-base sm:text-lg px-8 py-4 rounded-3xl border-2 border-snoopy-ink shadow-comic-lg hover:shadow-comic hover:translate-x-1 hover:translate-y-1 active:shadow-none transition-all inline-flex items-center gap-3 group">
+          <span class="text-2xl group-hover:scale-125 transition-transform">💖</span>
+          <span>Dibuat khusus dengan cinta untuk sahabat terbaik</span>
+          <span class="text-2xl group-hover:scale-125 transition-transform">💖</span>
+        </button>
+      </div>
+
+      <p class="font-hand text-lg text-slate-600 pt-2">
+        (Klik tombol di atas untuk mengirim hujan cinta dan kejutan spesial! 💌)
+      </p>
+
+    </div>
+  </section>
+
+  <div class="fixed bottom-5 right-5 z-40 flex items-end gap-2 select-none">
+    <div id="snoopySpeechBubble"
+      class="hidden bg-white border-2 border-snoopy-ink rounded-2xl p-3 shadow-comic max-w-xs font-comic text-xs text-snoopy-ink relative">
+      <span id="snoopyBubbleText">Woof! Selamat ulang tahun ya! 🐶</span>
+      <div class="absolute -bottom-2 right-4 w-3 h-3 bg-white border-b-2 border-r-2 border-snoopy-ink rotate-45"></div>
+    </div>
+
+    <button onclick="snoopyMascotClick()"
+      class="mascot-float w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-snoopy-yellow border-2 border-snoopy-ink shadow-comic hover:scale-110 active:scale-95 flex items-center justify-center text-3xl sm:text-4xl transition-all"
+      title="Klik aku untuk mengobrol dengan Snoopy!">
+      🐶
+    </button>
+  </div>
+
+  <footer class="bg-snoopy-cream border-t-2 border-snoopy-ink py-8 px-4 text-center">
+    <div class="max-w-6xl mx-auto space-y-2">
+      <p class="font-comic text-sm font-semibold text-snoopy-ink">
+        Designed with Love & Peanuts Gang Spirit 🐶 🐤 💖
+      </p>
+      <p class="font-hand text-sm text-slate-500">
+        Inspirasi dari Charles M. Schulz Peanuts Comics. Dibuat spesial untuk merayakan hari ulang tahunmu.
+      </p>
+      <div class="text-xs text-slate-400 pt-2">
+        &copy; 2026 Snoopy Birthday Special. All smiles guaranteed!
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const folderData = {
+      1: {
+        badge: "FOLDER 01: APRESIASI",
+        title: "Alasan Kamu Berharga 💖",
+        img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=700&q=80",
+        desc: "Kamu adalah orang yang selalu bisa menerangi ruangan dengan senyumanmu. Sikap tulusmu, caramu mendengarkan tanpa menghakimi, dan kebaikan hatimu membuat dunia di sekitarmu jauh lebih hangat. Snoopy saja tahu kalau orang sebaik kamu itu langka banget!",
+        emoji: "🐶",
+        note: '"You are truly one of a kind!" - Snoopy'
+      },
+      2: {
+        badge: "FOLDER 02: MEMORI KONYOL",
+        title: "Memori Lucu Kita 😂",
+        img: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=700&q=80",
+        desc: "Ingat nggak waktu kita ketawa nggak jelas sampai keluar air mata? Dari kebiasaan konyol kita, hal-hal absurd yang cuma kita yang paham, sampai momen panik bareng yang sekarang cuma jadi bahan tertawaan. Setiap detik bersamamu selalu penuh kelucuan!",
+        emoji: "🐤",
+        note: '"Woodstock couldn\'t stop laughing either!"'
+      },
+      3: {
+        badge: "FOLDER 03: SURAT HATI",
+        title: "Pesan Manis Untukmu 💌",
+        img: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=700&q=80",
+        desc: "Terima kasih sudah menjadi sahabat yang luar biasa di setiap fase hidupku. Di hari ulang tahunmu ini, aku cuma mau kamu ingat bahwa kamu tidak pernah sendirian. Apa pun yang terjadi di depan nanti, aku akan selalu ada di barisan terdepan untuk mendukungmu!",
+        emoji: "💌",
+        note: '"Best friends make the good times better."'
+      },
+      4: {
+        badge: "FOLDER 04: HAL UNIK",
+        title: "Unik Tentang Kamu ✨",
+        img: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=700&q=80",
+        desc: "Cara bicaramu yang ekspresif, playlist musikmu yang campur aduk, selera makanmu yang khas, dan caramu selalu bersemangat menceritakan hal yang kamu suka. Semua keunikan itu yang membuatmu begitu istimewa dan tidak tergantikan!",
+        emoji: "⭐",
+        note: '"Be yourself, no one can do it better!"'
+      },
+      5: {
+        badge: "FOLDER 05: DOA TULUS",
+        title: "Doa Spesial Ulang Tahun 🙏",
+        img: "https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?auto=format&fit=crop&w=700&q=80",
+        desc: "Semoga di usiamu yang baru ini, setiap langkahmu dimudahkan. Diberikan kesehatan yang prima, rezeki yang berkah berlimpah, dijauhkan dari segala hal buruk, dan dipertemukan dengan orang-orang baik yang menyayangimu dengan tulus.",
+        emoji: "🌸",
+        note: '"Wishing you endless sunshine & blessings!"'
+      },
+      6: {
+        badge: "FINAL FOLDER: GRAND FINALE",
+        title: "Tunggu Hingga Semua Dilihat! 🎁",
+        img: "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=700&q=80",
+        desc: "YAY! Kamu sudah membuka semua foldernya! Kejutan sesungguhnya adalah: aku sangat bersyukur memiliki sahabat sehebat kamu dalam hidupku. Sekarang, mari kita rayakan harimu, tiup lilinnya, dan makan kue sebanyak-banyaknya! HAPPY BIRTHDAY! 🎉🎂",
+        emoji: "🎉",
+        note: '"The whole Peanuts Gang sends huge hugs!"'
+      }
+    };
+
+    function openFolderModal(id) {
+      const data = folderData[id];
+      if (!data) return;
+
+      document.getElementById('modalBadge').innerText = data.badge;
+      document.getElementById('modalTitle').innerText = data.title;
+      document.getElementById('modalImg').src = data.img;
+      document.getElementById('modalDesc').innerText = data.desc;
+      document.getElementById('modalEmoji').innerText = data.emoji;
+      document.getElementById('modalNote').innerText = data.note;
+
+      const modal = document.getElementById('folderModal');
+      const container = document.getElementById('modalContainer');
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+
+      setTimeout(() => {
+        container.classList.remove('scale-95', 'opacity-0');
+        container.classList.add('scale-100', 'opacity-100');
+      }, 10);
+
+      playTone(523.25, 120);
+      setTimeout(() => playTone(659.25, 180), 100);
+
+      confetti({
+        particleCount: 30,
+        spread: 60,
+        origin: { y: 0.7 }
+      });
+    }
+
+    function closeFolderModal() {
+      const modal = document.getElementById('folderModal');
+      const container = document.getElementById('modalContainer');
+
+      container.classList.remove('scale-100', 'opacity-100');
+      container.classList.add('scale-95', 'opacity-0');
+
+      setTimeout(() => {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+      }, 200);
+    }
+
+    document.getElementById('folderModal').addEventListener('click', function (e) {
+      if (e.target === this) {
+        closeFolderModal();
+      }
+    });
+
+    let candleBlown = false;
+
+    function saveSecretWish() {
+      const input = document.getElementById('userWishInput');
+      const savedText = document.getElementById('wishSavedText');
+      if (input.value.trim() !== "") {
+        savedText.classList.remove('hidden');
+        playCelebrationTune();
+        confetti({
+          particleCount: 40,
+          spread: 50,
+          origin: { y: 0.7 }
+        });
+      } else {
+        input.focus();
+      }
+    }
+
+    function blowCandle() {
+      if (candleBlown) return;
+      candleBlown = true;
+
+      const flame = document.getElementById('flame');
+      const smoke = document.getElementById('smoke');
+      const wishMessage = document.getElementById('wishMessage');
+      const blowBtn = document.getElementById('blowBtn');
+      const relightBtn = document.getElementById('relightBtn');
+      const userWishInput = document.getElementById('userWishInput');
+      const userWishDisplay = document.getElementById('userWishDisplay');
+
+      flame.classList.add('hidden');
+      smoke.classList.remove('hidden');
+
+      playCelebrationTune();
+      triggerGrandConfetti();
+
+      if (userWishInput.value.trim() !== "") {
+        userWishDisplay.innerText = `"${userWishInput.value.trim()}"`;
+      } else {
+        userWishDisplay.innerText = `"Semoga panjang umur, sehat selalu, dan penuh kebahagiaan!"`;
+      }
+
+      wishMessage.classList.remove('hidden');
+
+      blowBtn.classList.add('hidden');
+      relightBtn.classList.remove('hidden');
+      relightBtn.classList.add('flex');
+    }
+
+    function relightCandle() {
+      candleBlown = false;
+
+      const flame = document.getElementById('flame');
+      const smoke = document.getElementById('smoke');
+      const wishMessage = document.getElementById('wishMessage');
+      const blowBtn = document.getElementById('blowBtn');
+      const relightBtn = document.getElementById('relightBtn');
+
+      flame.classList.remove('hidden');
+      smoke.classList.add('hidden');
+      wishMessage.classList.add('hidden');
+
+      blowBtn.classList.remove('hidden');
+      relightBtn.classList.add('hidden');
+      relightBtn.classList.remove('flex');
+    }
+
+    function openMysteryBox() {
+      const giftRevealed = document.getElementById('giftRevealed');
+      const mysteryBox = document.getElementById('mysteryBox');
+
+      giftRevealed.classList.remove('hidden');
+      mysteryBox.classList.add('animate-bounce');
+
+      triggerGrandConfetti();
+      playCelebrationTune();
+    }
+
+    const snoopyQuotes = [
+      "Woof! Jangan lupa sisain kue ulang tahunnya buat aku ya!",
+      "Hari ini kamu bebas minta apa aja ke semesta!",
+      "Woodstock barusan bilang: Kamu sahabat paling keren!",
+      "Keep calm and eat all the birthday cake! 🎂",
+      "Charlie Brown kirim salam hangat buat kamu!",
+      "100% Manusia terfavorit Snoopy tahun ini: KAMU!"
+    ];
+
+    function snoopySpeak() {
+      const quoteEl = document.getElementById('snoopyHeroQuote');
+      const randomQuote = snoopyQuotes[Math.floor(Math.random() * snoopyQuotes.length)];
+      quoteEl.innerText = randomQuote;
+      playTone(600, 100);
+    }
+
+    function snoopyMascotClick() {
+      const bubble = document.getElementById('snoopySpeechBubble');
+      const text = document.getElementById('snoopyBubbleText');
+      const randomQuote = snoopyQuotes[Math.floor(Math.random() * snoopyQuotes.length)];
+
+      text.innerText = randomQuote;
+      bubble.classList.remove('hidden');
+
+      triggerConfettiBurst();
+      playTone(523.25, 150);
+
+      setTimeout(() => {
+        bubble.classList.add('hidden');
+      }, 4500);
+    }
+
+    function triggerConfettiBurst() {
+      confetti({
+        particleCount: 80,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#F472B6', '#EE4344', '#FDE047', '#1E293B', '#FFFFFF']
+      });
+    }
+
+    function triggerGrandConfetti() {
+      const duration = 3.5 * 1000;
+      const animationEnd = Date.now() + duration;
+      const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999 };
+
+      const interval = setInterval(function () {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+          return clearInterval(interval);
+        }
+
+        const particleCount = 50 * (timeLeft / duration);
+        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+      }, 250);
+    }
+
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function triggerLoveSurprise(event) {
+      triggerConfettiBurst();
+
+      const emojis = ['💖', '🌸', '🎂', '🐶', '⭐', '✨', '🎈', '❤️', '🎁'];
+      const count = 18;
+
+      for (let i = 0; i < count; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart-float text-3xl select-none';
+        heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
+        const x = (event.clientX || window.innerWidth / 2) + (Math.random() * 260 - 130);
+        const y = (event.clientY || window.innerHeight / 2) + (Math.random() * 40 - 20);
+
+        heart.style.left = `${x}px`;
+        heart.style.top = `${y}px`;
+        heart.style.fontSize = `${Math.floor(Math.random() * 20 + 26)}px`;
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 2800);
+      }
+    }
+
+    let lastSparkle = 0;
+    const sparkleIcons = ['✨', '⭐', '🐾', '🌸', '💖'];
+
+    window.addEventListener('mousemove', (e) => {
+      const now = Date.now();
+      if (now - lastSparkle > 140) {
+        lastSparkle = now;
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle-particle';
+        sparkle.innerText = sparkleIcons[Math.floor(Math.random() * sparkleIcons.length)];
+        sparkle.style.left = `${e.clientX}px`;
+        sparkle.style.top = `${e.clientY}px`;
+        sparkle.style.setProperty('--tx', `${(Math.random() - 0.5) * 40}px`);
+        sparkle.style.setProperty('--ty', `${(Math.random() - 0.5) * 40 - 20}px`);
+        document.body.appendChild(sparkle);
+
+        setTimeout(() => {
+          sparkle.remove();
+        }, 1000);
+      }
+    });
+
+    let audioCtx = null;
+    let isPlayingBGM = false;
+    let melodyStep = 0;
+    let melodyTimeout = null;
+
+    const notes = {
+      C4: 261.63, D4: 293.66, E4: 329.63, F4: 349.23,
+      G4: 392.00, A4: 440.00, B4: 493.88, C5: 523.25
+    };
+
+    const bdayMelody = [
+      { note: notes.C4, dur: 350 }, { note: notes.C4, dur: 200 },
+      { note: notes.D4, dur: 500 }, { note: notes.C4, dur: 500 },
+      { note: notes.F4, dur: 500 }, { note: notes.E4, dur: 900 },
+
+      { note: notes.C4, dur: 350 }, { note: notes.C4, dur: 200 },
+      { note: notes.D4, dur: 500 }, { note: notes.C4, dur: 500 },
+      { note: notes.G4, dur: 500 }, { note: notes.F4, dur: 900 },
+
+      { note: notes.C4, dur: 350 }, { note: notes.C4, dur: 200 },
+      { note: notes.C5, dur: 500 }, { note: notes.A4, dur: 500 },
+      { note: notes.F4, dur: 500 }, { note: notes.E4, dur: 500 },
+      { note: notes.D4, dur: 900 },
+
+      { note: notes.B4, dur: 350 }, { note: notes.B4, dur: 200 },
+      { note: notes.A4, dur: 500 }, { note: notes.F4, dur: 500 },
+      { note: notes.G4, dur: 500 }, { note: notes.F4, dur: 1000 }
+    ];
+
+    function playTone(freq, duration) {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+      gain.gain.setValueAtTime(0.18, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (duration / 1000));
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start();
+      osc.stop(audioCtx.currentTime + (duration / 1000));
+    }
+
+    function toggleBGM() {
+      const icon = document.getElementById('bgmIcon');
+      const btn = document.getElementById('bgmBtn');
+      const text = document.getElementById('bgmText');
+      const eq = document.getElementById('eqContainer');
+
+      if (!isPlayingBGM) {
+        isPlayingBGM = true;
+        btn.classList.add('ring-4', 'ring-snoopy-red/50');
+        icon.className = "fa-solid fa-volume-high text-snoopy-red";
+        text.innerText = "Musik On";
+        eq.classList.remove('hidden');
+        eq.classList.add('flex');
+        startMelodyLoop();
+      } else {
+        isPlayingBGM = false;
+        btn.classList.remove('ring-4', 'ring-snoopy-red/50');
+        icon.className = "fa-solid fa-music";
+        text.innerText = "Play Musik";
+        eq.classList.add('hidden');
+        eq.classList.remove('flex');
+        stopMelodyLoop();
+      }
+    }
+
+    function playNextNote() {
+      if (!isPlayingBGM) return;
+      const item = bdayMelody[melodyStep];
+      playTone(item.note, item.dur);
+
+      melodyStep = (melodyStep + 1) % bdayMelody.length;
+      melodyTimeout = setTimeout(playNextNote, item.dur + 100);
+    }
+
+    function startMelodyLoop() {
+      melodyStep = 0;
+      playNextNote();
+    }
+
+    function stopMelodyLoop() {
+      clearTimeout(melodyTimeout);
+    }
+
+    function playCelebrationTune() {
+      playTone(523.25, 200);
+      setTimeout(() => playTone(659.25, 200), 180);
+      setTimeout(() => playTone(783.99, 400), 360);
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        confetti({
+          particleCount: 120,
+          spread: 90,
+          origin: { y: 0.5 },
+          colors: ['#F472B6', '#EE4344', '#FDE047', '#38BDF8', '#FFF']
+        });
+      }, 600);
+    });
+  </script>
+
+</body>
+
+</html>
